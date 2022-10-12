@@ -1,10 +1,12 @@
 import { Center, Container, Text } from "@chakra-ui/react";
+import { PrismaClient } from "@prisma/client";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
-
-export default function Home() {
+const prisma = new PrismaClient();
+export default function Home({ initialContacts }) {
+  console.log(initialContacts);
   return (
     <div className={styles.container}>
       <Head>
@@ -19,16 +21,27 @@ export default function Home() {
       <>
         <Container mt={50}>
           <Center>
-            <Text fontSize="6xl">No es mi polla</Text>
+            <Text fontSize="5xl">No es mi polla</Text>
           </Center>
           <Center>
             <Text fontSize="4xl">No es tu polla</Text>
           </Center>
           <Center>
-            <Text fontSize="6xl">¡Es Nuestra Polla!</Text>
+            <Text fontSize="3xl">¡Es Nuestra Polla!</Text>
           </Center>
         </Container>
       </>
     </div>
   );
 }
+
+export async function getServerSideProps() {
+  const contacts = await prisma.contact.findMany();
+  return {
+    props: {
+      initialContacts: contacts,
+    },
+  };
+}
+
+//https://youtu.be/FMnlyi60avU?t=409

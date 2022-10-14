@@ -11,9 +11,14 @@ export const Mensajes = ({ mensaje }) => {
       {mensaje?.mensaje && (
         <Box bg="blue.100" p="4" width="450px">
           <Badge>{mensaje.fecha}</Badge>
+
           <Spacer />
+          <Badge colorScheme="purple">$ {mensaje.cuota}</Badge>
+          <Spacer />
+
           <Text fontSize="2xl">{mensaje.mensaje}</Text>
           <span> {partialEmail} </span>
+
           {mensaje.polleroamigo && (
             <>
               <Badge variant="subtle" colorScheme="green">

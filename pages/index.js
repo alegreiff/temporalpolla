@@ -10,6 +10,7 @@ import {
   Input,
   Radio,
   RadioGroup,
+  Spacer,
   Stack,
   Switch,
   Text,
@@ -118,7 +119,7 @@ export default function Home() {
         {!envia && (
           <Container mt={50} minWidth={["sm", "lg", "3xl"]}>
             <Center>
-              <Text fontSize="5xl">No es mi polla</Text>
+              <Text fontSize="3xl">No es mi polla</Text>
             </Center>
             <Center>
               <Text fontSize="4xl">No es tu polla</Text>
@@ -127,10 +128,12 @@ export default function Home() {
               <Text fontSize="3xl">¡Es Nuestra Polla!</Text>
             </Center>
             <Box>
-              Esta NO es la inscripción a la polla. Se trata de un sondeo de
-              opinión.
+              Esta <strong>NO</strong> es la inscripción a la polla. Se trata de
+              un sondeo de opinión.
             </Box>
+            <Spacer />
             <VStack>
+              <Spacer />
               <FormControl>
                 <FormLabel>Correo electrónico</FormLabel>
                 <Input
@@ -141,8 +144,9 @@ export default function Home() {
                 />
                 <FormHelperText>El correo no será publicado </FormHelperText>
               </FormControl>
+              <Spacer />
               <FormControl>
-                <FormLabel>¿Cuántos pesos colombianos?</FormLabel>
+                <FormLabel>¿Cuántos pesos colombianos le metemos?</FormLabel>
                 <RadioGroup onChange={setCuota} value={cuota}>
                   <Stack direction="column">
                     <Radio size="lg" value="100000">
@@ -160,6 +164,7 @@ export default function Home() {
                   </Stack>
                 </RadioGroup>
               </FormControl>
+              <Spacer />
               <FormControl display="flex" alignItems="center">
                 <FormLabel htmlFor="email-alerts" mb="0">
                   Me interesa ser pollero amigo

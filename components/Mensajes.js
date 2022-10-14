@@ -10,7 +10,7 @@ export const Mensajes = ({ mensaje }) => {
   return (
     <>
       {mensaje?.mensaje && (
-        <Box bg="orange" p="4" width="450px">
+        <Box bg="blue.100" p="4" width="450px">
           <Badge>{mensaje.fecha}</Badge>
           <Spacer />
           <Text fontSize="2xl">{mensaje.mensaje}</Text>

@@ -2,10 +2,9 @@ import { Badge, Box, Spacer, Text } from "@chakra-ui/react";
 import React from "react";
 
 export const Mensajes = ({ mensaje }) => {
-  const partialEmail = mensaje?.correo.replace(
-    /(\w{3})[\w.-]+@([\w.]+\w)/,
-    "$1***@$2"
-  );
+  const partialEmail = mensaje?.correo
+    ? mensaje?.correo.replace(/(\w{3})[\w.-]+@([\w.]+\w)/, "$1***@$2")
+    : "";
 
   return (
     <>
